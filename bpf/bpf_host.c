@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: GPL-2.0
 /* Copyright (C) 2016-2020 Authors of Cilium */
 
-
 #include <bpf/ctx/skb.h>
 #include <bpf/api.h>
 
@@ -181,7 +180,7 @@ handle_ipv6(struct __ctx_buff *ctx, __u32 secctx, const bool from_host)
 	void *data, *data_end;
 	struct ipv6hdr *ip6;
 	union v6addr *dst;
-	__u32 __maybe_unused remote_id = WORLD_ID;
+	__u32 remote_id = WORLD_ID;
 	int ret, l3_off = ETH_HLEN, hdrlen;
 	bool skip_redirect = false;
 	struct endpoint_info *ep;
@@ -449,7 +448,7 @@ handle_ipv4(struct __ctx_buff *ctx, __u32 secctx,
 	    __u32 ipcache_srcid __maybe_unused, const bool from_host)
 {
 	struct remote_endpoint_info *info = NULL;
-	__u32 __maybe_unused remoteID = 0;
+	__u32 remoteID = 0;
 	struct ipv4_ct_tuple tuple = {};
 	bool skip_redirect = false;
 	struct endpoint_info *ep;
@@ -798,8 +797,8 @@ static __always_inline int do_netdev_encrypt(struct __ctx_buff *ctx, __u16 proto
 static __always_inline int
 do_netdev(struct __ctx_buff *ctx, __u16 proto, const bool from_host)
 {
-	__u32 __maybe_unused identity = 0;
-	__u32 __maybe_unused ipcache_srcid = 0;
+	__u32 identity = 0;
+	__u32 ipcache_srcid = 0;
 	int ret;
 
 #ifdef ENABLE_IPSEC
