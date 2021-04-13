@@ -448,7 +448,7 @@ handle_ipv4(struct __ctx_buff *ctx, __u32 secctx,
 	    __u32 ipcache_srcid __maybe_unused, const bool from_host)
 {
 	struct remote_endpoint_info *info = NULL;
-	__u32 __maybe_unused remoteID = 0;
+	__u32 remoteID = 0;
 	struct ipv4_ct_tuple tuple = {};
 	bool skip_redirect = false;
 	struct endpoint_info *ep;
@@ -797,8 +797,8 @@ static __always_inline int do_netdev_encrypt(struct __ctx_buff *ctx, __u16 proto
 static __always_inline int
 do_netdev(struct __ctx_buff *ctx, __u16 proto, const bool from_host)
 {
-	__u32 __maybe_unused identity = 0;
-	__u32 __maybe_unused ipcache_srcid = 0;
+	__u32 identity = 0;
+	__u32 ipcache_srcid = 0;
 	int ret;
 
 #ifdef ENABLE_IPSEC
@@ -967,8 +967,8 @@ int from_host(struct __ctx_buff *ctx)
 __section("to-netdev")
 int to_netdev(struct __ctx_buff *ctx __maybe_unused)
 {
-	__u32 __maybe_unused src_id = 0;
-	__u16 __maybe_unused proto = 0;
+	__u32 src_id = 0;
+	__u16 proto = 0;
 	int ret = CTX_ACT_OK;
 
 #ifdef ENABLE_HOST_FIREWALL
