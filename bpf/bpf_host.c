@@ -967,8 +967,8 @@ int from_host(struct __ctx_buff *ctx)
 __section("to-netdev")
 int to_netdev(struct __ctx_buff *ctx __maybe_unused)
 {
-	__u32 __maybe_unused src_id = 0;
-	__u16 __maybe_unused proto = 0;
+	__u32 src_id = 0;
+	__u16 proto = 0;
 	int ret = CTX_ACT_OK;
 
 #ifdef ENABLE_HOST_FIREWALL
