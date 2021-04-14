@@ -7,6 +7,11 @@ jobs:
     name: Check if build works for every commit
     runs-on: ubuntu-latest
     steps:
+      - name: Configure git
+        run: |
+          git config --global user.name "github-action"
+          git config --global user.email github-actions@users.noreply.github.com
+          
       - name: Install Go
         uses: actions/setup-go@37335c7bb261b353407cff977110895fa0b4f7d8
         with:
@@ -34,11 +39,6 @@ jobs:
         uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
         with:
           fetch-depth: 0
-
-      - name: Configure git
-        run: |
-          git config user.name github-action
-          git config user.email github-actions@users.noreply.github.com
           
       - name: Check if build works for every commit
         run: |
