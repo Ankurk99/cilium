@@ -9,8 +9,8 @@ jobs:
     steps:
       - name: Configure git
         run: |
-          git config user.name "GitHub Actions"
-          git config user.email "github-actions@users.noreply.github.com"
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "github-actions@users.noreply.github.com"
 
       - name: Install Go
         uses: actions/setup-go@37335c7bb261b353407cff977110895fa0b4f7d8
